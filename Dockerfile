@@ -107,6 +107,8 @@ RUN cd /usr/local/bin \
 	&& ln -s python3 python \
 	&& ln -s python3-config python-config
 
+RUN mkdir /data
+
 WORKDIR /data
 
 RUN pip install virtualenv \
@@ -119,4 +121,4 @@ RUN	cd UE4MasterServer/Server/ \
 	&& source py3env/bin/activate \
 	&& python setup.py install
 
-CMD ["python3 UE4MasterServer/Server/MasterServer.py"]
+CMD ["python3", "/data/UE4MasterServer/Server/MasterServer.py"]

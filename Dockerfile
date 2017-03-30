@@ -121,4 +121,8 @@ RUN	cd UE4MasterServer/Server/ \
 	&& source py3env/bin/activate \
 	&& python setup.py install
 
-CMD ["python3", "/data/UE4MasterServer/Server/MasterServer.py"]
+WORKDIR /data/UE4MasterServer/Server
+
+RUN pip install peewee flask_peewee
+
+CMD ["python3", "MasterServer.py"]
